@@ -1,0 +1,23 @@
+import { useNavigate } from "react-router-dom";
+import { Undo2 } from 'lucide-react';
+
+function SobreMi() {
+    const navigate = useNavigate();
+  return (
+    <div className="intro">
+        <div className="NavBar NavBarInter">
+            <Undo2 className="flecha" onClick={() => navigate(`/`)}/>
+            <div className="links">
+                <a className="menu" onClick={() => navigate(`/SobreMi`)}>Sobre mi</a>
+                <a className="menu" onClick={() => navigate(`/Proyectos`)}>Proyectos</a>
+            </div>
+        </div>
+        <div className="color1" id="sobreColor1">
+        </div>
+        <div className="color2" id="sobreColor2">
+        </div>
+    </div>
+  );
+}
+
+export default SobreMi;

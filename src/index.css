@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.intro{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.NavBar{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.NavBarInter{
+  justify-content: space-between;
+}
+
+.links{
+  display: flex;
+}
+
+.menu{
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.menu::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.menu:hover::after{
+  width: 100%;
+}
+
+.flecha{
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.color1{
+  background-color: black;
+  width: 50%;
+  height: 100vh;
+}
+
+#sobreColor1{
+  background-color: rgb(151, 0, 0);
+  width: 15%;
+}
+
+#proyColor1{
+  width: 15%;
+}
+
+.color2{
+  background-color: rgb(151, 0, 0);
+  width: 50%;
+  height: 100vh;
+}
+
+#sobreColor2{
+  background-color: black;
+  width: 85%;
+}
+
+#proyColor2{
+  width: 85%;
+}
