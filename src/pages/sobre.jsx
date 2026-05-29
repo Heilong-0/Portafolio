@@ -10,6 +10,7 @@ function SobreMi() {
             <div className="links">
                 <a className="menu" onClick={() => navigate(`/SobreMi`)}>Sobre mi</a>
                 <a className="menu" onClick={() => navigate(`/Proyectos`)}>Proyectos</a>
+                <a className="menu" onClick={() => navigate("/Contacto")}>Contáctame</a>
             </div>
         </div>
         <div className="color1" id="sobreColor1">

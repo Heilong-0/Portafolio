@@ -14,6 +14,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
+  background-color: black
 }
 
 .NavBar{
@@ -23,6 +24,7 @@ body {
   height: 50px;
   display: flex;
   justify-content: flex-end;
+  z-index: 5;
 }
 
 .NavBarInter{
@@ -58,14 +60,19 @@ body {
   color: rgb(255, 255, 255);
   margin: 20px;
   font-family: 'Courier New', monospace;
-  font-size: 10px;
   cursor: pointer;
+  height: 20px;
+  width: 20px;
 }
 
 .color1{
   background-color: black;
   width: 50%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden
 }
 
 #sobreColor1{
@@ -77,10 +84,29 @@ body {
   width: 15%;
 }
 
+#name{
+  margin-left: 20%;
+  -webkit-text-stroke: 1px white;
+  font-size: 90px;
+  font-family: 'Georgia', serif;
+  position: relative;
+  z-index: 3;
+}
+
+#colorName{
+  position: relative;
+  z-index: 2;
+  background-color: rgb(0, 0, 0);
+  width: 70%;
+  margin-left: 40%;
+}
+
 .color2{
   background-color: rgb(151, 0, 0);
   width: 50%;
   height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 #sobreColor2{
@@ -90,4 +116,85 @@ body {
 
 #proyColor2{
   width: 85%;
+}
+
+#puesto{
+ font-family: 'Courier New', monospace;
+ margin-left: 5%;
+ font-size: 30px;
+}
+
+.color1.salir {
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.color2.salir {
+  transform: translateX(100%);
+  transition: transform 0.8s ease;
+}
+
+#titulo-contacto{
+  color: rgb(151, 0, 0);
+}
+
+.margen { 
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+}
+
+#margen2{
+  margin-top: 2%;
+}
+
+input::placeholder { 
+  color: #969696; 
+  font-weight: 300; 
+}
+
+.margen-formulario {
+  border-radius: 5px;
+  padding-block: 12px !important;
+  padding-left: 12px !important;
+  padding-right: 55%;
+  margin-bottom: 18px !important;
+  background: #000000;
+  font-size: 13px;
+  margin-top: 60%;
+  font-family: 'Courier New', monospace;
+}
+
+.ingreso { 
+  border: 1px solid #007013; 
+  outline: 0px solid transparent; 
+  transition: all 0.3s ease; 
+  color: #969696;
+}
+.ingreso:focus { 
+  border: 1px solid #09ff00; 
+  background-color: rgba(21, 255, 0, 0.082); 
+}
+.ingreso:hover { 
+  border: 1px solid #09ff00; 
+}
+
+button[type=button] {
+  background: linear-gradient(to right, #a30000, #410000);
+  font-family: 'Courier New', monospace;
+  border: none;
+  color: rgb(20, 0, 0);
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0px 0px 10px #550000af;
+  margin-left: 35%;
+}
+button[type=button]:hover { 
+  transform: translateY(-1px); 
+}
+button[type=button]:active { 
+  background: #a30000; 
 }
