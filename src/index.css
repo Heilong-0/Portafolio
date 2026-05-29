@@ -91,3 +91,131 @@ body {
 #proyColor2{
   width: 85%;
 }
+.texto-SobreMi {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 80px 24px 0 24px;
+}
+
+.Titulo-SobreMi {
+    font-family: 'Courier New', monospace;
+    font-size: 50px;
+    font-weight: 700;
+    color: #e60000;
+    position: relative;
+    letter-spacing: 0.04em;
+}
+
+.Titulo-SobreMi::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #842687;
+    animation: glitch1 2.5s infinite;
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.Titulo-SobreMi::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #341863;
+    animation: glitch2 2.5s infinite;
+    clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+}
+
+@keyframes glitch1 {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-3px, 1px); }
+    95% { transform: translate(3px, -1px); }
+}
+
+@keyframes glitch2 {
+    0%, 90%, 100% { transform: translate(0); }
+    93% { transform: translate(3px, 1px); }
+    96% { transform: translate(-3px, -1px); }
+}
+
+.Subtitulo-SobreMi {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #888;
+}
+
+.Texto-Animado {
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    color: #00ff41;
+    white-space: pre-wrap;
+    line-height: 1.9;
+}
+
+.cursor {
+    color: #e60000;
+    animation: blink 0.5s infinite;
+}
+.Proyectos-Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%; 
+  margin: 0 auto;
+}
+
+.Proyecto-Card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 250px;
+}
+
+.Proyecto-Titulo {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.Proyecto-Descripcion {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0;
+}
+
+.Proyecto-Tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.Proyecto-Tag {
+  background: rgba(100, 200, 255, 0.15);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  color: #64c8ff;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.color2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.Proyectos-Contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
