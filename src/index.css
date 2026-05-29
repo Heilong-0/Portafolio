@@ -339,3 +339,7 @@ button[type=button]:active {
   align-items: center;
   width: 100%;
 }
+
+#entradas{
+  z-index: 2;
+}

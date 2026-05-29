@@ -12,6 +12,25 @@ function Contacto() {
     const [empresa, setEmpresa] = useState("");
     const [cargo, setCargo] = useState("");
     const [enviado, setEnviado] = useState(false);
+    const simbolos = ["<",">","//","||","&&","{","}","[","]"];
+    const [gotas, setGotas] = useState(
+        Array.from({ length: 700 }, () => ({
+            simbolo: simbolos[Math.floor(Math.random() * simbolos.length)],
+            x: Math.random() * 100,
+            y: Math.random() * -100,
+            velocidad: Math.random() * 2 + 1,
+            color: Math.random() > 0.2 ? 'rgb(41, 41, 41)' : 'red'
+        }))
+    );
+    useEffect(() => {
+        const intervaloGotas = setInterval(() => {
+          setGotas(prev => prev.map(gota => ({
+            ...gota,
+            y: gota.y > 100 ? -10 : gota.y + gota.velocidad
+          })));
+        }, 50);
+        return () => clearInterval(intervaloGotas);
+      }, []);
 
     function handleSubmit() {
         emailjs.send(
@@ -34,7 +53,7 @@ function Contacto() {
                 <a className="menu" onClick={() => navigate("/Contacto")}>Contáctame</a>
             </div>
         </div>
-        <form>
+        <form id="entradas">
             <div className="margen">
                 <input 
                     type="text" 
@@ -91,6 +110,22 @@ function Contacto() {
                 <button type="button" onClick={handleSubmit}>Enviar</button>
             </div>
         </form>
+        {gotas.map((gota, index) => (
+              <span
+                key={index}
+                style={{
+                  position: 'absolute',
+                  left: `${gota.x}%`,
+                  top: `${gota.y}%`,
+                  color: gota.color,
+                  opacity: 0.5,
+                  fontSize: '17px',
+                  zIndex: 0
+                }}
+                >
+                {gota.simbolo}
+              </span>
+              ))}
     </div>
   );
 }

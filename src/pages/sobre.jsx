@@ -7,6 +7,25 @@ function SobreMi() {
     const navigate = useNavigate();
     const [texto, setTexto] = useState("");
     const [indice, setIndice] = useState(0);
+    const simbolos = ["<",">","//","||","&&","{","}","[","]"];
+    const [gotas, setGotas] = useState(
+        Array.from({ length: 50 }, () => ({
+            simbolo: simbolos[Math.floor(Math.random() * simbolos.length)],
+            x: Math.random() * 100,
+            y: Math.random() * -100,
+            velocidad: Math.random() * 2 + 1,
+            color: Math.random() > 0.6 ? 'black' : 'red'
+        }))
+    );
+    useEffect(() => {
+        const intervaloGotas = setInterval(() => {
+          setGotas(prev => prev.map(gota => ({
+            ...gota,
+            y: gota.y > 100 ? -10 : gota.y + gota.velocidad
+          })));
+        }, 50);
+        return () => clearInterval(intervaloGotas);
+      }, []);
     useEffect(() => {
         if (indice < descripcion.length) {
              const timeout = setTimeout(() => {
@@ -26,7 +45,23 @@ function SobreMi() {
                 <a className="menu" onClick={() => navigate("/Contacto")}>Contáctame</a>
             </div>
         </div>
-         <div className="color1" id="sobreColor1">
+        <div className="color1" id="sobreColor1">
+             {gotas.map((gota, index) => (
+              <span
+                key={index}
+                style={{
+                  position: 'absolute',
+                  left: `${gota.x}%`,
+                  top: `${gota.y}%`,
+                  color: gota.color,
+                  opacity: 0.5,
+                  fontSize: '17px',
+                  zIndex: 0
+                }}
+                >
+                {gota.simbolo}
+              </span>
+              ))}
         </div>
         <div className="color2" id="sobreColor2">
           <div className="texto-SobreMi">

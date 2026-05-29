@@ -67,8 +67,8 @@ function Intro() {
                 >
                 {gota.simbolo}
               </span>
-          ))}
-        </div>
+              ))}
+          </div>
         <div className={`color2 ${aniSalir ? 'salir' : ''}`}>
             <h2 id="puesto">{text}</h2>
         </div>

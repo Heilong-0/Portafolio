@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Undo2 } from 'lucide-react';
+import { useState, useEffect } from "react";
 
 const Proyectos = [
   {
@@ -17,6 +18,25 @@ const Proyectos = [
 ];
 function Proyectosm() {
   const navigate = useNavigate();
+  const simbolos = ["<",">","//","||","&&","{","}","[","]"];
+    const [gotas, setGotas] = useState(
+        Array.from({ length: 50 }, () => ({
+            simbolo: simbolos[Math.floor(Math.random() * simbolos.length)],
+            x: Math.random() * 100,
+            y: Math.random() * -100,
+            velocidad: Math.random() * 2 + 1,
+            color: Math.random() > 0.6 ? 'rgb(49, 49, 49)' : 'red'
+        }))
+    );
+    useEffect(() => {
+        const intervaloGotas = setInterval(() => {
+          setGotas(prev => prev.map(gota => ({
+            ...gota,
+            y: gota.y > 100 ? -10 : gota.y + gota.velocidad
+          })));
+        }, 50);
+        return () => clearInterval(intervaloGotas);
+      }, []);
 
   return (
     <div className="intro">
@@ -28,7 +48,24 @@ function Proyectosm() {
                 <a className="menu" onClick={() => navigate("/Contacto")}>Contáctame</a>
             </div>
         </div>
-        <div className="color1" id="proyColor1"></div>
+        <div className="color1" id="proyColor1">
+            {gotas.map((gota, index) => (
+              <span
+                key={index}
+                style={{
+                  position: 'absolute',
+                  left: `${gota.x}%`,
+                  top: `${gota.y}%`,
+                  color: gota.color,
+                  opacity: 0.5,
+                  fontSize: '17px',
+                  zIndex: 0
+                }}
+                >
+                {gota.simbolo}
+              </span>
+              ))}
+        </div>
         <div className="color2" id="proyColor2">
             <div className="Proyectos-Contenido">
                 <h1 className="Titulo-Proyectos" data-text="<PROYECTOS />">&lt;PROYECTOS /&gt;</h1>
